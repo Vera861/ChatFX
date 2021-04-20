@@ -16,17 +16,24 @@ public class Controller {
     TextArea mainTextArea;
     @FXML
     TextField mainTextField;
+    @FXML
+    Button btnSend;
 
     public void btnOneClickAction(ActionEvent actionEvent) {
-        mainTextArea.appendText(mainTextField.getText() +"\n");
-        mainTextField.clear();
+        if (mainTextField.getText().trim().length() > 0) {
+            mainTextArea.appendText(mainTextField.getText() + "\n");
+            mainTextField.clear();
+        }
+
     }
 
 
     public void handleEnterPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
-            mainTextArea.appendText(mainTextField.getText() +"\n");
-            mainTextField.clear();
+            if (mainTextField.getText().trim().length() > 0) {
+                mainTextArea.appendText(mainTextField.getText() + "\n");
+                mainTextField.clear();
+            }
         }
     }
 }
